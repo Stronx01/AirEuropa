@@ -1,0 +1,39 @@
+<section class="grid grid-cols-1 md:grid-cols-2">
+  <div class="bg-base-100 p-12 md:p-24 flex justify-end items-center">
+    <a href=""><img src="https://cdn.discordapp.com/attachments/1013403845981917304/1014658771382980629/Microsoft_Flight_Simulator_Screenshot_2022.08.27_-_11.57.04.31_2.png" class="w-full max-w-md">
+    </a>
+  </div>
+  <div class="bg-gray-100 p-12 md:p-24 flex justify-start items-center">
+    <div class="max-w-md">
+      <div class="w-24 h-2 bg-primary mb-4"></div>
+      <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-6">
+        Mensaje de nuestro Presidente
+      </h2>
+      <p class="font-light text-gray-800 text-sm md:text-base mb-6 leading-relaxed">
+        Estimados compañeros,
+        Lo primero es daros la bienvenida a esta nueva etapa de AirEuropa Virtual, y daros la gracias por confiar en nosotros.
+        AirEuropa Virtual empezó hace muchos años en las redes de vuelo virtuales, intentando simular siempre lo más fielmente posible las operaciones de la aerolínea española Air Europa, con una trayectoria histórica excelente en la simulación aérea. Es por ello que no podíamos dejar de perder la oportunidad de continuar con este legado y volver a llenar los cielos de ese color azul que siempre nos ha acompañado.
+        Disponemos de una flota rica con cuatro aeronaves que dan un servicio integral a los destinos a los que volamos, desde el corto radio con el ATR72, prestando un servicio social interinsular, hasta llegar al gran radio con nuestros Boeing 787, uniendo la relación histórica y cultural de la península ibérica con américa latina, sin olvidar al avión más polivalente de la historia el Boeing 737 con su clase 800.
+        Nuestras tres bases en la península sirven de nexo con el viejo continente y américa latina, volando a las principales capitales europeas, canarias y baleares.
+        En esta nueva etapa contamos con un equipo técnico formado por muy variados perfiles, trabajaremos para volver a crear un ambiente cordial y trataremos de retomar eventos en los que los que nos hagan más grupo y volver a llevar el color azul por todo el cielo.
+        Siéntate a los mandos y disfruta de este nuevo vuelo.
+      </p>
+      <button class="btn bg-primary" (click)="mostrarStaff()">
+        Mostrar staff
+      </button>
+      <button class="btn bg-primary" (click)="quitarStaff()" *ngIf="stf">
+        Quitar Staff
+      </button>
+    </div>
+  </div>
+</section>
+<div class="grid grid-cols-4 gap-4" *ngIf="stf">
+    <div class="w-full max-w-sm bg-white" *ngFor="let Staff of equipo">
+      <div class="flex flex-col items-center pb-10">
+        <img class="mb-3 w-24 h-24 rounded-full" src="https://cdn.discordapp.com/attachments/1007386737229692938/1016083036506423346/Captura_de_pantalla_2022-09-04_211817_2.png" alt="Staff image">
+        <h5 class="mb-1 text-xl font-medium text-gray-900 text-primary">{{Staff.name}} {{Staff.surname}}</h5>
+        <span class="text-sm text-gray-500 dark:text-gray-400">{{Staff.departamento}}</span>
+        <a href="{{Staff.contacto}}" class="btn btn-primary">Contacto</a>
+      </div>
+    </div>
+</div>
