@@ -1,1 +1,37 @@
-
+<section class="relative w-full py-12 px-12">
+  <div class="relative z-10 text-center py-12 md:py-24">
+    <h1 class="text-white text-center text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6">
+      Aviones de Air Europa
+    </h1>
+    <p class="text-white mb-10 text-base md:text-lg font-bold">
+      Te presentamos todos los aviones que componen la flota de Air Europa
+    </p>
+    <button class="btn btn-primary" (click)="mostrarPlane()">
+      Mostrar Flota
+    </button>
+    <button class="btn btn-primary" (click)="quitarPlane()" *ngIf="av">
+      Ocultar Flota
+    </button>
+  </div>
+  <img src="https://cdn.discordapp.com/attachments/1006169407090860062/1006200980414668840/Lockheed_Martin_Prepar3D_v5_with_WideServer__waiting_for_clients_06_08_2022_19_34_27.png"
+       class="w-full h-full absolute inset-0 object-cover">
+</section>
+<section id="flota" *ngIf="av">
+  <div class="grid grid-cols-1 md:grid-cols-2" *ngFor="let Avion of liAvion">
+    <div class="bg-base-100 p-12 md:p-24 flex justify-end items-center">
+      <a href=""><img src="{{Avion.imagen}}" class="w-full max-w-md">
+      </a>
+    </div>
+    <div class="bg-gray-100 p-12 md:p-24 flex justify-start items-center">
+      <div class="max-w-md">
+        <div class="w-24 h-2 bg-primary mb-4"></div>
+        <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-6">
+          {{Avion.modelo}}
+        </h2>
+        <p class="font-light text-gray-800 text-sm md:text-base mb-6 leading-relaxed">
+         {{Avion.desc}}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
